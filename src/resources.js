@@ -54,38 +54,71 @@ export const resource_values = {
     Blessed_Essence: 0
 };
 
+// export const tradeRatio = {
+//     Food: 2,
+//     Lumber: 2,
+//     Chrysotile: 1,
+//     Stone: 2,
+//     Crystal: 0.4,
+//     Furs: 1,
+//     Copper: 1,
+//     Iron: 1,
+//     Aluminium: 1,
+//     Cement: 1,
+//     Coal: 1,
+//     Oil: 0.5,
+//     Uranium: 0.12,
+//     Steel: 0.5,
+//     Titanium: 0.25,
+//     Alloy: 0.2,
+//     Polymer: 0.2,
+//     Iridium: 0.1,
+//     Helium_3: 0.1,
+//     Deuterium: 0.1,
+//     Elerium: 0.02,
+//     Water: 2,
+//     Neutronium: 0.05,
+//     Adamantite: 0.05,
+//     Infernite: 0.01,
+//     Nano_Tube: 0.1,
+//     Graphene: 0.1,
+//     Stanene: 0.1,
+//     Bolognium: 0.12,
+//     Vitreloy: 0.12,
+//     Orichalcum: 0.05
+// }
 export const tradeRatio = {
-    Food: 2,
-    Lumber: 2,
-    Chrysotile: 1,
-    Stone: 2,
-    Crystal: 0.4,
-    Furs: 1,
-    Copper: 1,
-    Iron: 1,
-    Aluminium: 1,
-    Cement: 1,
-    Coal: 1,
-    Oil: 0.5,
-    Uranium: 0.12,
-    Steel: 0.5,
-    Titanium: 0.25,
-    Alloy: 0.2,
-    Polymer: 0.2,
-    Iridium: 0.1,
-    Helium_3: 0.1,
-    Deuterium: 0.1,
-    Elerium: 0.02,
-    Water: 2,
-    Neutronium: 0.05,
-    Adamantite: 0.05,
-    Infernite: 0.01,
-    Nano_Tube: 0.1,
-    Graphene: 0.1,
-    Stanene: 0.1,
-    Bolognium: 0.12,
-    Vitreloy: 0.12,
-    Orichalcum: 0.05
+    Food: 2 * 100,
+    Lumber: 2 * 100,
+    Chrysotile: 1 * 100,
+    Stone: 2 * 100,
+    Crystal: 0.4 * 100,
+    Furs: 1 * 100,
+    Copper: 1 * 100,
+    Iron: 1 * 100,
+    Aluminium: 1 * 100,
+    Cement: 1 * 100,
+    Coal: 1 * 100,
+    Oil: 0.5 * 100,
+    Uranium: 0.12 * 100,
+    Steel: 0.5 * 100,
+    Titanium: 0.25 * 100,
+    Alloy: 0.2 * 100,
+    Polymer: 0.2 * 100,
+    Iridium: 0.1 * 100,
+    Helium_3: 0.1 * 100,
+    Deuterium: 0.1 * 100,
+    Elerium: 0.02 * 100,
+    Water: 2 * 100,
+    Neutronium: 0.05 * 100,
+    Adamantite: 0.05 * 100,
+    Infernite: 0.01 * 100,
+    Nano_Tube: 0.1 * 100,
+    Graphene: 0.1 * 100,
+    Stanene: 0.1 * 100,
+    Bolognium: 0.12 * 100,
+    Vitreloy: 0.12 * 100,
+    Orichalcum: 0.05 * 100
 }
 
 export const atomic_mass = {
@@ -2036,7 +2069,7 @@ export function tradeBuyPrice(res){
         let wariness = (global.resource.Sus.amount - 50) / 8;
         price *= 1 + wariness;
     }
-    price = +(price).toFixed(1);
+    price = +(price / 100).toFixed(1);
     return price;
 }
 
