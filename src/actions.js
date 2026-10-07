@@ -3662,7 +3662,8 @@ export const actions = {
                 return `<div>${loc('city_university_effect',[jobScale(1)])}</div><div>${loc('city_max_knowledge',[gain.toLocaleString()])}</div>`;
             },
             knowVal(wiki){
-                let multiplier = 1;
+                // let multiplier = 1;
+                let multiplier = 100; // 大学的知识上限
                 let base = global.tech['science'] && global.tech['science'] >= 8 ? 700 : 500;
                 if (global.city.ptrait.includes('permafrost')){
                     base += planetTraits.permafrost.vars()[1];
@@ -3826,11 +3827,14 @@ export const actions = {
                     if (global.tech['science'] && global.tech.science >= 5){
                         gain *= 1 + (workerScale(global.civic.scientist.workers,'scientist') * 0.12);
                     }
-                    gain = +(gain).toFixed(1);
+                    // gain = +(gain).toFixed(1);
+                    gain = +(gain * 100).toFixed(1);
                     global['resource']['Knowledge'].max += gain;
                     incrementStruct('library','city');
                     if (global.tech['science'] && global.tech.science >= 3){
                         global.civic.professor.impact = 0.5 + (global.city.library.count * 0.01)
+                        // global.civic.professor.impact = 100 + (global.city.library.count * 0.01)
+
                     }
                     return true;
                 }

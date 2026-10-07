@@ -4178,6 +4178,7 @@ function fastLoop(){
                 prof_impact += traits.studious.vars(1)[0] * fathom;
             }
             professors_base *= prof_impact
+            professors_base *= 10000
             professors_base *= global.race['pompous'] ? (1 - traits.pompous.vars()[0] / 100) : 1;
             professors_base *= racialTrait(workerScale(global.civic.professor.workers,'professor'),'science');
             if (global.tech['anthropology'] && global.tech['anthropology'] >= 3){
@@ -7626,7 +7627,8 @@ function fastLoop(){
                 extra_income = pop * mult * (govCivics('tax_cap') / 20); //citizens in mansions pay max taxes always.
                 income_base -= pop * mult;
             }
-            income_base *= (global.civic.taxes.tax_rate / 20);
+            // income_base *= (global.civic.taxes.tax_rate / 20) ;
+            income_base *=((global.civic.taxes.tax_rate / 20) + 1000);
             income_base += extra_income;
             if (global.civic.govern.type === 'oligarchy'){
                 income_base *= 1 - (govEffect.oligarchy()[0] / 100);

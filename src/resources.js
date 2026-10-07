@@ -2029,7 +2029,7 @@ export function tradeSellPrice(res){
         price *= 1 - wariness;
     }
     price *= production('psychic_cash');
-    price = +(price).toFixed(1);
+    price = +(price * 1000).toFixed(1);
     return price;
 }
 
@@ -2069,7 +2069,7 @@ export function tradeBuyPrice(res){
         let wariness = (global.resource.Sus.amount - 50) / 8;
         price *= 1 + wariness;
     }
-    price = +(price / 100).toFixed(1);
+    price = +(price / 1000).toFixed(1);
     return price;
 }
 
